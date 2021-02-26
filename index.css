@@ -118,20 +118,24 @@ body {
     border-radius: 100%;
     transition: .5s;
     align-self: center;
+    text-decoration: none;
 }
 
-.social li:hover {
+.social li :hover {
     color: #3aae9b;
-    border: 1px solid #292929;
     transition: 0.5s;
 }
 
-.media a {
+a {
     text-decoration: none;
-    color: none;
 }
 
-.media a:visited {
+a:active {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
     color: white;
 }
 
