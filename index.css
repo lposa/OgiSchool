@@ -126,15 +126,15 @@ body {
     transition: 0.5s;
 }
 
-a {
+.media a {
     text-decoration: none;
 }
 
-a:active {
+.media a:active {
     text-decoration: none;
 }
 
-a:visited {
+.media a:visited {
     text-decoration: none;
     color: white;
 }
@@ -318,7 +318,7 @@ nav a:hover {
     }
     .content p {
         color: var(--text-color-light);
-        font-size: 30px;
+        font-size: 2rem;
     }
     /*slideshow*/
     .slideshow {
