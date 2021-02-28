@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
+    <script type="text/javascript" src="loginregister.js"></script>
     <title>OgisSchoolLoginPage</title>
 </head>
 
 <body>
-
+    <script type="text/javascript" src="loginregister.js"></script>
     <div class="steam-login-form">
         <div class="front">
             <img src="assets/logo.jpg" alt="logo">
@@ -21,9 +22,9 @@
                 <input class="form__text" type="email" id="email" name="email">
                 <!--Type makes sure it has to be an email that is entered, for connects email to the id email-->
                 <label class="form__label" for="password">Password<span class="form__tooltip" data-tooltip="Minimum 8 characters, at least 1 uppercase letter and 1 number">?</span></label>
-                <input class="form__text" type="password">
+                <input class="form__text" id="password" type="password">
 
-                <button class="button">Login</button>
+                <button class="button" type="button" onclick="getInfo()">Login</button>
                 <a href="index.html" class="fineprint">Take me back to home</a>
 
             </form>
