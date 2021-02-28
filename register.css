@@ -22,9 +22,9 @@
 body {
     height: 100vh;
     display: flex;
-    font-family: motiva-sans, sans-serif;
     justify-content: center;
     align-items: center;
+    font-family: motiva-sans, sans-serif;
     background-color: gray;
     background-image: url("assets/bg2.jpeg");
     background-size: cover;
@@ -79,13 +79,24 @@ a:hover {
     font-size: var(--fs-small);
 }
 
+.list--unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--bg-color);
+}
+
+.list li {
+    margin-bottom: 1em;
+}
+
 .button {
     all: unset;
     cursor: pointer;
     display: inline-block;
     background: var(--clr-dark);
     padding: .5em 1.75em;
-    margin-top: .5em;
+    margin-top: .6em;
     color: rgba(0, 0, 0, .9);
     font-weight: var(--fw-3);
     transform: scale(1);
@@ -100,20 +111,47 @@ a:hover {
     margin-left: 2em;
 }
 
-.steam-login-form {
-    display: inline;
-    width: 600px;
+.steam-signup-form {
+    display: grid;
+    width: 960px;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 35% minmax(500px, 1fr) 3em;
+    /*35%, all the leftover space, and like a small 3em*/
     position: relative;
     /*so its not position inside of the document*/
 }
 
 .front {
+    order: 2;
+    /*switches sides*/
     background-color: var(--bg-color);
     background-image: linear-gradient( var(--bg-color-light), var(--bg-color));
     padding: 3rem;
     grid-row: 1/4;
     grid-column: 2/3;
     /*to make sure it goes from the top all the way to the bottom*/
+}
+
+.back {
+    order: 1;
+    background-color: var(--bg-color-light);
+    grid-row: 2/3;
+    /*goes from line to all the way to line 3*/
+    grid-column: 1/2;
+    padding: 3rem;
+}
+
+.back::after {
+    content: '';
+    display: block;
+    background: var(--bg-color-light);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    grid-row: 2/3;
 }
 
 .form {
@@ -168,10 +206,6 @@ a:hover {
     margin-right: .5em;
 }
 
-.fineprint {
-    font-size: var(--fs-small);
-}
-
 @media screen and (max-width: 480px) {
     .title,
     .subheading {
@@ -181,24 +215,51 @@ a:hover {
         line-height: 20px;
     }
     .title {
-        font-size: 1.25rem;
+        font-size: var(--fs-2);
         font-weight: var(--fw-3);
     }
     .subheading {
         font-size: var(--fs-2);
         margin-top: 0;
     }
-    .steam-login-form {
+    .steam-signup-form {
         display: flex;
-        max-width: 400px;
+        flex-direction: column;
+        max-width: 320px;
         max-height: 100%;
     }
     .front {
+        order: 1;
         background-color: var(--bg-color);
         max-width: 100%;
     }
-    .steam-login-form img {
+    .back {
+        order: 2;
+        background-color: var(--bg-color-light);
+        max-width: 100%;
+    }
+    .steam-signup-form img {
         max-width: 100%;
         max-height: 100%;
+    }
+    .button {
+        all: unset;
+        cursor: pointer;
+        display: block;
+        background: var(--clr-dark);
+        padding: .5em 1.75em;
+        margin-top: .6em;
+        color: rgba(0, 0, 0, .9);
+        font-weight: var(--fw-3);
+        transform: scale(1);
+        transition: transform ease-in-out 150;
+        position: relative;
+        align-self: center;
+    }
+    .button:hover {
+        transform: scale(1.1);
+    }
+    .button+* {
+        margin-left: 1em;
     }
 }
